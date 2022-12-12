@@ -8,8 +8,6 @@ export default function App (){
     const [question, setQuestion] = React.useState([])
     const [quizEnded, setQuizEnded] = React.useState(false)
     const [newGame, setNewGame] = React.useState(false)
-    const [options, setOptions] = React.useState(false)
-
 
     function startQuiz(){
         setQuiz(true)
@@ -47,7 +45,6 @@ export default function App (){
     
     function selectAnswer(event,id1, id2){
         if(!quizEnded){
-            trackOptionsCount()
         setQuestion(prevState => {
             return prevState.map(states => {
             return states.id === id1? {...states,
@@ -82,26 +79,8 @@ export default function App (){
             })
         })
     }
-    
-    function trackOptionsCount(){
-        let newArray = []
-        for(let ques of question){
-            for(let ans of ques.incorrectAnswers){
-                if(ans.isSelected){
-                    newArray.push(ans)
-                } 
-            }
-        }
-        
-        if(newArray.length >= 4){
-            setOptions(true)
-        } else{setOptions(false)}
-        
-        return newArray
-    }
-    
-    
-    
+
+ 
     
     function startNewGame(){
         setQuizEnded(false)
@@ -117,8 +96,6 @@ export default function App (){
     const displayQuestions = question.map(ques => { 
         return <Questions
                     {...ques}
-                    trackOptionsCount={trackOptionsCount}
-                    options={options}
                     quizEnded={quizEnded}
                     selectAnswer={selectAnswer}
         />
