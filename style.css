@@ -129,7 +129,7 @@ hr{
 
 /* media query */
 
-@media (max-width: 400px){
+@media (max-width: 500px){
     
 .container {
     width: 100%;
