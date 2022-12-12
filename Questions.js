@@ -16,6 +16,10 @@ export default function Questions(props){
      
      
     const answersArray = answersArrObj.map(ans => { 
+        let placeholders = document.createElement('div');
+        placeholders.innerHTML = ans.answer;
+        let answer = placeholder.innerText;
+
         if(props.chosenAnswer === props.correctAnswer.answer){
          endStyles = {
              backgroundColor: ans.isSelected? "#94D7A2" : "#F5F7FB",
@@ -35,7 +39,7 @@ export default function Questions(props){
             backgroundColor: ans.isSelected? "#D6DBF5" : "#F5F7FB",
             border: ans.isSelected? "none": "0.794239px solid #4D5B9E"
         }
-        return <div className="options" key={ans.id} onClick={(event) => {props.selectAnswer(event, props.id, ans.id)}} style={props.quizEnded? endStyles : styles }>{ans.answer}</div>
+        return <div className="options" key={ans.id} onClick={(event) => {props.selectAnswer(event, props.id, ans.id)}} style={props.quizEnded? endStyles : styles }>{answer}</div>
     })
     
     return(
