@@ -153,5 +153,13 @@ hr{
 .options-container{
     flex-direction: column;
     width: fit-content;
+    max-width: 40vw;
+}
+.check-answers{
+    padding: 10px 15px;
+    font-size: 12px;
+}
+.options{
+    font-size: 12px
 }
 }
